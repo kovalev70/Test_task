@@ -47,6 +47,6 @@ class Program
 
     static bool IsEmail(string word)
     {
-        return word.Contains("@");
+        return word.Contains('@');
     }
 }
