@@ -13,11 +13,11 @@ public class Program
 
         var trains = new Train[]
         {
-            new Train("Ìîñêâà", 5, "17:00"),
-            new Train("Àíàïà", 1, "11:30"),
-            new Train("Ñàðàòîâ", 8, "09:00"),
-            new Train("Ìóðìàíñê", 15, "22:20"),
-            new Train("Åêàòåðèíáóðã", 4, "11:00")
+            new Train("ÐœÐ¾ÑÐºÐ²Ð°", 5, "17:00"),
+            new Train("ÐÐ½Ð°Ð¿Ð°", 1, "11:30"),
+            new Train("Ð¡Ð°Ñ€Ð°Ñ‚Ð¾Ð²", 8, "09:00"),
+            new Train("ÐœÑƒÑ€Ð¼Ð°Ð½ÑÐº", 15, "22:20"),
+            new Train("Ð•ÐºÐ°Ñ‚ÐµÑ€Ð¸Ð½Ð±ÑƒÑ€Ð³", 4, "11:00")
         };
 
         app.MapGet("/train/{trainNumber}", (int trainNumber) =>
