@@ -6,13 +6,13 @@
 
         if (double.TryParse(Console.ReadLine(), out double depositAmount))
         {
-            double interestRate = 0;
+            double interestRate;
 
             if (depositAmount < 100)
             {
                 interestRate = 0.05;
             }
-            else if (depositAmount >= 100 && depositAmount <= 200)
+            else if (depositAmount <= 200)
             {
                 interestRate = 0.07;
             }

@@ -16,6 +16,7 @@ public class DepositService : IDepositService
         _httpClientFactory = clientFactory;
         _baseUrl = configuration.GetConnectionString("DepositApi");
     }
+
     public async Task PostDepositInformation(DepositCalculationInputModel depositModel)
     {
         HttpClient client = _httpClientFactory.CreateClient("DepositApi");
@@ -26,7 +27,7 @@ public class DepositService : IDepositService
 
         if (!response.IsSuccessStatusCode)
         {
-            throw new Exception("Не удалось получить итоговую сумму депозита.");
+            throw new Exception("Не удалось занести депозит в базу данных.");
         }
     }
 
