@@ -1,0 +1,28 @@
+﻿@page
+@model Task10.Frontend.Pages.Models.CalculationModel
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Your Page Title</title>
+    <link href="~/css/site.css" rel="stylesheet" />
+</head>
+<body>
+
+    <form method="post">
+        <p>
+            <label>Размер депозита:</label><br />
+            <input type="number" name="amount" min="0" oninput="validity.valid||(value='');" />
+        </p>
+        <p>
+            <label>Количество месяцев:</label><br />
+            <input type="number" name="months" min="0" oninput="validity.valid||(value='');" />
+        </p>
+        <input type="submit" value="Рассчитать" />
+    </form>
+
+    <h2>@Model.Message</h2>
+
+</body>
+</html>

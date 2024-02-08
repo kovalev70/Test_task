@@ -24,23 +24,21 @@ public class DepositController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<ActionResult> Create(
-        [FromQuery] decimal amount,
-        [FromQuery] int months)
+    public async Task<ActionResult> Create(CreateDepositDto depositDto)
     {
-        var depositModel = _mapper.Map<Deposit>(new CreateDepositDto(amount, months));
+        var depositModel = _mapper.Map<Deposit>(depositDto);
         await _repository.CreateAsync(depositModel);
         return Ok();
     }
 
     [HttpGet]
     public async Task<ActionResult> GetFinalAmount(
-        [FromQuery] decimal? amount, 
+        [FromQuery] decimal amount, 
         [FromQuery] int months)
     {
-        var finalAmount = Convert.ToDecimal(
-            _configuration["BankSettings:InterestRate"]) / 12 * months * amount + amount;
-
+        decimal finalAmount = Math.Round(
+            Convert.ToDecimal(_configuration["BankSettings:InterestRate"])
+            / 12 * months * amount + amount, 2);
         return Ok(finalAmount);
     }
 }
